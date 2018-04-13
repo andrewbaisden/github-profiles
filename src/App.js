@@ -62,6 +62,7 @@ class App extends Component {
                   </div>
                   <div className="github-user-remove">
                     <button onClick={() => this.removeElement()}>Delete</button>
+                    {/* When the button is clicked, the selected user profile component is removed/hidden from the screen. */}
                   </div>
                 </div>
               </div>
