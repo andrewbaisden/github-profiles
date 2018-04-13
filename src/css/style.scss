@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+:root {
+    --font-color: #ffffff;
+    --font-default-size: 1.6rem;
+    --font-family: 'Josefin Sans', sans-serif;
+}
+
+html {
+    font-size: 62.5%;
+    /* font-size 1em = 10px on default browser settings */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-family);
+    background: #bada55 url('../media/nebula.jpg') repeat-y center;
+    font-size: var(--font-default-size);
+    color: var(--font-color);
+}
+
+.container {
+    margin: 20px auto;
+    max-width: 1300px;
+    width: 100%;
+}
+
+.github-user-container {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: 1fr 1fr 1fr;
+    background: #2c2e34ea;
+    -webkit-box-shadow: 0px 14px 36px 0px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0px 14px 36px 0px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 14px 36px 0px rgba(0, 0, 0, 0.5);
+}
+
+.github-user-image {
+    display: grid;
+    justify-content: left;
+    align-items: center;
+}
+
+.github-user-image img {
+    width: 100%;
+    max-width: 200px;
+    border-radius: 100%;
+    border: 2px solid #ffffff;
+    margin-left: 20px;
+}
+
+.github-user-remove {
+    display: grid;
+    justify-content: end;
+    // align-items: center;
+}
+
+.github-user-remove button {
+    background: #64ffdbea;
+    border: none;
+    cursor: pointer;
+}
