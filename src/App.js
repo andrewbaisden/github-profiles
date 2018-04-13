@@ -1,18 +1,45 @@
 import React, { Component } from 'react';
 
 const API = 'http://localhost:3001/githubusers';
+class ListItem extends Component {
+  render() {
+    return (
+      <div className="container">
+        <div className="github-user-container">
+          <div className="github-user-image">
+            <img src={this.props.res.avatar_url} alt="User Avatar" />
+          </div>
+          <div className="github-user-details">
+            <h1>{this.props.res.name}</h1>
+            <p>{this.props.res.bio}</p>
+            <p>{this.props.res.location}</p>
+            <p>Public Repos: {this.props.res.public_repos}</p>
+            <p>Following: {this.props.res.following}</p>
+            <p>Followers: {this.props.res.followers}</p>
+          </div>
+          <div className="github-user-remove">
+            <button onClick={this._onClick.bind(this)}>Delete</button>
+            {/* When the button is clicked, the selected user profile component is removed/hidden from the screen. */}
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  _onClick() {
+    this.props.onItemClick(this.props.res.id);
+  }
+}
 
 class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      data: [],
-      show: true,
+      data: []
     };
 
     this.getApi = this.getApi.bind(this);
-    this.removeElement = this.removeElement.bind(this);
   }
 
   componentDidMount() {
@@ -33,10 +60,9 @@ class App extends Component {
         console.error('Error', e);
       });
   }
-  removeElement() {
+  removeElement(id) {
     console.log(`Remove Element`);
-    const { show } = this.state;
-    this.setState({ show: !show });
+    this.setState(prevState => ({ data: prevState.data.filter(e => e.id != id)}))
   }
 
   render() {
@@ -46,27 +72,7 @@ class App extends Component {
       <div>
         {data.map(res => (
           <div key={res.id}>
-            {this.state.show && (
-              <div className="container">
-                <div className="github-user-container">
-                  <div className="github-user-image">
-                    <img src={res.avatar_url} alt="User Avatar" />
-                  </div>
-                  <div className="github-user-details">
-                    <h1>{res.name}</h1>
-                    <p>{res.bio}</p>
-                    <p>{res.location}</p>
-                    <p>Public Repos: {res.public_repos}</p>
-                    <p>Following: {res.following}</p>
-                    <p>Followers: {res.followers}</p>
-                  </div>
-                  <div className="github-user-remove">
-                    <button onClick={() => this.removeElement()}>Delete</button>
-                    {/* When the button is clicked, the selected user profile component is removed/hidden from the screen. */}
-                  </div>
-                </div>
-              </div>
-            )}
+            <ListItem res={res} onItemClick={this.removeElement.bind(this)} />
           </div>
         ))}
       </div>
