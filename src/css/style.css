@@ -12,7 +12,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: var(--font-family);
-  background: #bada55 url("../media/nebula.jpg") repeat-y center;
+  background: #bada55 url("../media/nebula.jpg") repeat;
   font-size: var(--font-default-size);
   color: var(--font-color); }
 
