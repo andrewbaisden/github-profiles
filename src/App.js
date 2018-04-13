@@ -62,7 +62,7 @@ class App extends Component {
   }
   removeElement(id) {
     console.log(`Remove Element`);
-    this.setState(prevState => ({ data: prevState.data.filter(e => e.id != id)}))
+    this.setState(prevState => ({ data: prevState.data.filter(e => e.id !== id)}))
   }
 
   render() {
