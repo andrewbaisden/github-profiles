@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 const API = 'http://localhost:3001/githubusers';
 class ListItem extends Component {
+  onClick() {
+    this.props.onItemClick(this.props.res.id);
+  }
   render() {
     return (
       <div className="container">
@@ -18,16 +22,12 @@ class ListItem extends Component {
             <p>Followers: {this.props.res.followers}</p>
           </div>
           <div className="github-user-remove">
-            <button onClick={this._onClick.bind(this)}>Delete</button>
+            <button onClick={this.onClick.bind(this)}>Delete</button>
             {/* When the button is clicked, the selected user profile component is removed/hidden from the screen. */}
           </div>
         </div>
       </div>
     );
-  }
-
-  _onClick() {
-    this.props.onItemClick(this.props.res.id);
   }
 }
 
@@ -36,7 +36,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      data: []
+      data: [],
     };
 
     this.getApi = this.getApi.bind(this);
@@ -62,7 +62,7 @@ class App extends Component {
   }
   removeElement(id) {
     console.log(`Remove Element`);
-    this.setState(prevState => ({ data: prevState.data.filter(e => e.id !== id)}))
+    this.setState(prevState => ({ data: prevState.data.filter(e => e.id !== id) }));
   }
 
   render() {
@@ -79,5 +79,10 @@ class App extends Component {
     );
   }
 }
+
+ListItem.propTypes = {
+  res: PropTypes.object.isRequired,
+  onItemClick: PropTypes.func.isRequired,
+};
 
 export default App;

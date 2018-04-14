@@ -59,3 +59,29 @@ body {
     border: none;
     cursor: pointer;
 }
+
+@media screen and (max-width: 700px) {
+    .github-user-container {
+        grid-template-columns: 1fr;
+    }
+    .github-user-image {
+        display: grid;
+        justify-content: center;
+        align-items: center;
+    }
+    .github-user-image img {
+        margin: 20px auto;
+    }
+    .github-user-details {
+        display: grid;
+        justify-content: center;
+        text-align: center;
+    }
+    .github-user-remove {
+        display: grid;
+        justify-content: stretch;
+    }
+    .github-user-remove button {
+        padding: 10px;
+    }
+}
