@@ -1,33 +1,33 @@
 {
-  "name": "my-app",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "concurrently": "^3.6.1",
-    "json-server": "^0.15.1",
-    "node-sass": "^4.13.1",
-    "normalize.css": "^8.0.1",
-    "prop-types": "^15.7.2",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-scripts": "1.1.4"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "styles": "node-sass -w ./src/css -o ./src/css",
-    "json:server": "json-server --watch db.json --port 3001",
-    "watch": "concurrently \"npm run start \" \"npm run styles\"",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  },
-  "devDependencies": {
-    "eslint-config-airbnb": "^16.1.0",
-    "eslint-config-prettier": "^2.10.0",
-    "eslint-plugin-import": "^2.20.1",
-    "eslint-plugin-jsx-a11y": "^5.1.1",
-    "eslint-plugin-prettier": "^2.7.0",
-    "eslint-plugin-react": "^7.18.3",
-    "prettier": "1.12.0"
-  }
+	"name": "my-app",
+	"version": "0.1.0",
+	"private": true,
+	"dependencies": {
+		"concurrently": "^3.6.1",
+		"json-server": "^0.15.1",
+		"node-sass": "^4.13.1",
+		"normalize.css": "^8.0.1",
+		"prop-types": "^15.7.2",
+		"react": "^16.12.0",
+		"react-dom": "^16.12.0",
+		"react-scripts": "1.1.4"
+	},
+	"scripts": {
+		"start": "react-scripts start",
+		"styles": "node-sass -w ./src/css -o ./src/css",
+		"json:server": "json-server --watch db.json --port 3001",
+		"servers": "concurrently \"npm run start \" \"npm run styles\" \"npm run json:server\" ",
+		"build": "react-scripts build",
+		"test": "react-scripts test --env=jsdom",
+		"eject": "react-scripts eject"
+	},
+	"devDependencies": {
+		"eslint-config-airbnb": "^16.1.0",
+		"eslint-config-prettier": "^2.10.0",
+		"eslint-plugin-import": "^2.20.1",
+		"eslint-plugin-jsx-a11y": "^5.1.1",
+		"eslint-plugin-prettier": "^2.7.0",
+		"eslint-plugin-react": "^7.18.3",
+		"prettier": "1.12.0"
+	}
 }
