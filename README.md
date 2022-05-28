@@ -1,12 +1,12 @@
 # GitHub Profiles
 
-![GitHub Profiles](https://res.cloudinary.com/d74fh3kw/image/upload/v1582576280/github_profiles_vjo6ma.jpg 'GitHub Profiles')
+![GitHub Profiles](/img/github-profiles.jpeg 'GitHub Profiles')
 
 ## Prerequisites
 
 Install [JSON Server](https://github.com/typicode/json-server)
 
-```json
+```shell
 npm install -g json-server
 ```
 
